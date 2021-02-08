@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9df73e48af254a2aa0123718f614418, type: 3}
+  m_Name: Object placeholder 1
+  m_EditorClassIdentifier: 
+  name: OBJECT placeholder
+  itemDescription: This is a placeholder
+  icon: {fileID: 21300000, guid: e3a58593f93f14fd08d016f94822096f, type: 3}
+  isCarriedTool: 0
+  itemType: 1
+  imageOfItem: {fileID: 4850663290857782654, guid: 86b99469cb57841fb9492afaca5bec2b,
+    type: 3}
