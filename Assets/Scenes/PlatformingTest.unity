@@ -1710,6 +1710,7 @@ MonoBehaviour:
   exludeLayerName: Ground
   openDoorKey: 323
   levelChangeKey: 323
+  levelSwitcher: {fileID: 0}
   cursorNormal: {fileID: 289638450}
   cursorInteract: {fileID: 384056998}
 --- !u!1 &352538048
@@ -5721,6 +5722,11 @@ PrefabInstance:
       propertyPath: m_Dithering
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8227306056491758757, guid: 6d2ac44d9507144cfa58cc054edb2478,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.88
+      objectReference: {fileID: 0}
     - target: {fileID: 8227306056669252244, guid: 6d2ac44d9507144cfa58cc054edb2478,
         type: 3}
       propertyPath: m_Name
@@ -7337,10 +7343,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8641731854b124d8d9eb3739355daa61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item1ToToggle: {fileID: 1930906401}
+  torch: {fileID: 0}
+  walkie: {fileID: 0}
   itemKey1: 1
-  isItem1On: 0
+  itemKey2: 
+  isTorchOn: 0
+  isWalkieOn: 0
   torchSwitchAudio: {fileID: 1501236757}
+  walkieSwitchOnAudio: {fileID: 0}
+  walkieSwitchOffAudio: {fileID: 0}
 --- !u!54 &1584760584
 Rigidbody:
   m_ObjectHideFlags: 0
