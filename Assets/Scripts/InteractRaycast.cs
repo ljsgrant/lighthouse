@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// This script shoots the ray to detect interactable objects.
+// Also changes the cursor when ray is hitting an interactable object.
+
 public class InteractRaycast : MonoBehaviour
 {
 
@@ -10,13 +13,13 @@ public class InteractRaycast : MonoBehaviour
 
     Collider currentCollider = null;
 
-    ///////////////////////////////////////////////////////////////////////////
+    public bool isKeyHeld = false;
+
     [Header("Raycast Parameters")]
     [SerializeField] private float rayLength = 0.5f;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string exludeLayerName = null;
 
-    ///////////////////////////////////////////////////////////////////////////
     [Header("Key Codes")]
     // Mouse button to interact with doors
     [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
@@ -29,16 +32,13 @@ public class InteractRaycast : MonoBehaviour
     public GameObject cursorNormal = null;
     public GameObject cursorInteract = null;
 
-    ///////////////////////////////////////////////////////////////////////////
     // Tags so the Raycast can tell what kind of object it has hit & which script to run
-
     private const string interactableTag = "InteractiveObject";
     private const string changeLevelTag = "ChangeLevelRaycatcher";
     private const string pickupableItemTag = "PickUpableObject";
+    private const string doorRequiresItemTag = "ThisDoorRequiresAnItem";
 
-    ///////////////////////////////////////////////////////////////////////////
-    // Virtual method "Interact" from Brackeys item tutorial (RPG ep02)
-
+    //Virtual method "Interact" from Brackeys item tutorial (RPG ep02)
     public virtual void Interact ()
     {
         // This method is meant to be overwritten

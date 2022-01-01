@@ -44,7 +44,9 @@ public class BasicDoorController : Interactable
         }
     }
 
-    public override void Interact()
+// Is passed into Interact; so PlayAnimation is called when Interact is called
+
+    public override void Interact() // from Interactable
     {
         PlayAnimation();
         Debug.Log("Play door animation");

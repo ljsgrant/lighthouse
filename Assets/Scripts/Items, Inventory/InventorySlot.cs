@@ -10,6 +10,7 @@ public class InventorySlot : MonoBehaviour
     public Text itemName;
     public Text itemDescription;
     public int itemTypeIndex;
+    
 
     public RawImage imageOfItem;
 
