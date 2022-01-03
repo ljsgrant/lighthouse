@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Inventory creates a list to hold items.
 // Inventory is instantiated in InventoryUI. It is a singleton & should not be instantiated more than once.
 
 public class Inventory : MonoBehaviour
@@ -30,6 +31,7 @@ public class Inventory : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
+    // Creates list to hold items.
     public List<Item> items = new List<Item>();
 
     /*

@@ -19,7 +19,7 @@ public class InventoryUI : MonoBehaviour
 
     public Item item { get; private set; }
 
-    List<InventorySlot> slots = new List<InventorySlot>();
+   public List<InventorySlot> slots = new List<InventorySlot>();
 
     Inventory inventory;
 
@@ -104,20 +104,6 @@ public class InventoryUI : MonoBehaviour
                 //Debug.Log("Destroying item slot instance");
             }
         }
-
-#region Check inventory for item name
-// Checks each inventory slot for specified item name, and prints a message to the console if found.
-// Next should make it that the item to check for can be specified in the editor,
-// and make it so that the result affects whether or not an action happens (i.e. opening a door).
-        foreach (InventorySlot slot in slots)
-        {
-            if (slot.itemName.text == "KeyItemPlaceholder") // rather than checking string, instead check if Item in slot is equal to Item dropped in via editor from project files.
-            {
-                Debug.Log("LOOK! Found a key item in the inventory!");
-                break;
-            }
-        }
-#endregion
     }
 
     void ClearAllSlots()

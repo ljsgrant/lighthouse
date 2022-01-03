@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-// This ScriptableObject is 
+// This ScriptableObject is a template for creating items. It will be referenced by the ItemPickup class (reference set via Unity Editor).
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
