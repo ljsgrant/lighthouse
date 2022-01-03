@@ -6,6 +6,10 @@ public class BasicDoorController : Interactable
     private Animator doorAnim;
     private bool doorOpen = false;
 
+    public Inventory inventory;
+    public GameObject thisDoorOpensFor;
+    public bool isItemPresentInInventory = false;
+
     [Header("Animation Names")]
     [SerializeField] private string openAnimationName = "DoorOpen";
     [SerializeField] private string closeAnimationName = "DoorClose";

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+// This ScriptableObject is 
+
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
 {
@@ -9,7 +11,7 @@ public class Item : ScriptableObject
     public Sprite icon = null;
     public bool isCarriedTool = false;
 
-    //creates drop-down for type of item
+    //creates drop-down for type of item in unity editor
     public enum ItemType
     {
         Object = 1,

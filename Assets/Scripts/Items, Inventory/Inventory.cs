@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Inventory is instantiated in InventoryUI. It is a singleton & should not be instantiated more than once.
+
 public class Inventory : MonoBehaviour
 {
 
@@ -23,6 +25,8 @@ public class Inventory : MonoBehaviour
 
     #endregion
 
+    // This delegate method will execute any methods passed into it when it's Invoked (below).
+    // Inventory is instantiated in InventoryUI Start method.
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
@@ -54,7 +58,7 @@ public class Inventory : MonoBehaviour
 
             if (onItemChangedCallback != null)
                 onItemChangedCallback.Invoke();
-        //}
+        
 
         return true;
     }

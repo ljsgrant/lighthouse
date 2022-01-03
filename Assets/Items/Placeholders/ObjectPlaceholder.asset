@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9df73e48af254a2aa0123718f614418, type: 3}
-  m_Name: Document placeholder 1
+  m_Name: ObjectPlaceholder
   m_EditorClassIdentifier: 
-  name: DOCUMENT placeholder
+  name: ObjectPlaceholder
   itemDescription: This is a placeholder
   icon: {fileID: 21300000, guid: e3a58593f93f14fd08d016f94822096f, type: 3}
   isCarriedTool: 0
-  itemType: 2
-  imageOfItem: {fileID: 4850663290857782654, guid: 710e06caf7ae9429d8ce403c2cf5c0f5,
+  itemType: 1
+  imageOfItem: {fileID: 4850663290857782654, guid: 86b99469cb57841fb9492afaca5bec2b,
     type: 3}
