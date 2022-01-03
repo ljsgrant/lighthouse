@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BasicDoorController : Interactable
 {
@@ -10,9 +11,12 @@ public class BasicDoorController : Interactable
     private bool doorOpen = false;
 
     public GameObject menuManager = null;
+    public string thisDoorOpensFor = null;
+    bool isItemPresentInInventory = false;
 
-    // public GameObject thisDoorOpensFor;
-    public bool isItemPresentInInventory = false;
+    public Text playerCharacterText;
+    public string textToDisplayIfLocked = "This door seems to be locked...";
+    public string textToDisplayIfUnlocked = "Used the key in the lock.";
 
     [Header("Animation Names")]
     [SerializeField] private string openAnimationName = "DoorOpen";
@@ -71,16 +75,19 @@ public class BasicDoorController : Interactable
         // {
             foreach (InventorySlot slot in inventoryUI.slots)
             {
-                if (slot.itemName.text == "KeyItemPlaceholder") // CHANGE THIS: rather than checking string, instead check if Item in slot is equal to Item dropped in via editor from project files.
+                if (slot.itemName.text == thisDoorOpensFor) 
                 {
                     isItemPresentInInventory = true;
-                    Debug.Log("Used the key in the door. (isItemPresentInInventory set to true)");
+                    Debug.Log("isItemPresentInInventory = true)");
+                    playerCharacterText.text = textToDisplayIfUnlocked;
                     break;
                 }
                 else
                 {
                     isItemPresentInInventory = false;
-                    Debug.Log("This door needs a key. (isItemPresentInInventory set to false)");
+                    Debug.Log("isItemPresentInInventory = false)");
+                    playerCharacterText.text = textToDisplayIfLocked;
+
                 }
             }
 

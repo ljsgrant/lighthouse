@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// This class controls the Inventory, Player Character Text, and other menus & prompts.
+// Should eventually add functionality for controls prompts (see commented-out variables below) 
+// and for pause menu 
+
 public class MenuController : MonoBehaviour
 {
 
@@ -10,6 +14,13 @@ public class MenuController : MonoBehaviour
     //public GameObject player;
     public string inventoryKey;
     public bool isInventoryMenuActive;
+
+    public GameObject playerCharacterText;
+    public bool isPlayerCharacterTextActive;
+
+    // public GameObject controlsPrompt;
+    // public string controlsPromptKey;
+    // public bool isControlsPromptActive;
 
     private GameObject player;
     private Behaviour playerMotor;

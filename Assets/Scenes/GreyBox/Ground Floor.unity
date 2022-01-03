@@ -1602,6 +1602,84 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.000021651387}
   m_SizeDelta: {x: 0, y: 350.58658}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &280385558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280385559}
+  - component: {fileID: 280385561}
+  - component: {fileID: 280385560}
+  m_Layer: 5
+  m_Name: PlayerCharacterText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &280385559
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280385558}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 859574461}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -165.00002}
+  m_SizeDelta: {x: -442.72995, y: -373.65073}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &280385560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280385558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.00000023841858, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &280385561
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280385558}
+  m_CullTransparentMesh: 0
 --- !u!1 &289638450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7224532496757542289, guid: 5fdfcebb1c3e8495b9ed37622e0f720b,
@@ -4070,6 +4148,7 @@ RectTransform:
   - {fileID: 622510086}
   - {fileID: 1166230327}
   - {fileID: 1612554007}
+  - {fileID: 280385559}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4688,7 +4767,7 @@ GameObject:
   - component: {fileID: 1166230329}
   - component: {fileID: 1166230328}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ControlsInfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4720,7 +4799,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166230326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -5995,6 +6074,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5550242526988835773, guid: 499e62c1ce4b64824807c1a670f3788f,
+        type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 1612554006}
+    - target: {fileID: 5550242526988835773, guid: 499e62c1ce4b64824807c1a670f3788f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550242526988835773, guid: 499e62c1ce4b64824807c1a670f3788f,
+        type: 3}
+      propertyPath: thisDoorOpensFor
+      value: KeyItemPlaceholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550242526988835773, guid: 499e62c1ce4b64824807c1a670f3788f,
+        type: 3}
+      propertyPath: playerCharacterText
+      value: 
+      objectReference: {fileID: 280385560}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 499e62c1ce4b64824807c1a670f3788f, type: 3}
 --- !u!1 &1354651686
@@ -7838,6 +7937,7 @@ MonoBehaviour:
   documentSlotSpawnPoint: {fileID: 1262134684}
   objectSlotSpawnPoint: {fileID: 809230815}
   keyItemSlotSpawnPoint: {fileID: 418990890}
+  slots: []
 --- !u!114 &1612554011
 MonoBehaviour:
   m_ObjectHideFlags: 0
