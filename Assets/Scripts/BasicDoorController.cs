@@ -11,10 +11,11 @@ public class BasicDoorController : Interactable
     private bool doorOpen = false;
 
     public GameObject menuManager = null;
-    public string thisDoorOpensFor = null;
+    public ScriptableObject thisDoorOpensFor = null;
     bool isItemPresentInInventory = false;
 
     public Text playerCharacterText;
+    public GameObject playerCharacterTextGameObject;
     public string textToDisplayIfLocked = "This door seems to be locked...";
     public string textToDisplayIfUnlocked = "Used the key in the lock.";
 
@@ -61,30 +62,30 @@ public class BasicDoorController : Interactable
         }
     }
 
-// Is passed into Interact; contents are executed when Interact is called
-
     public override void Interact() // from Interactable
     {
-
         #region Check inventory for item name
        
-        // Checks each inventory slot for specified item name, and prints a message to the console if found.
-        // Next should make it that the item to check for can be specified in the editor,
+             // Checks each inventory slot for specified item name, and prints a message to the console if found.
 
-        // if(inventory.items.Count > 0)
-        // {
             foreach (InventorySlot slot in inventoryUI.slots)
             {
-                if (slot.itemName.text == thisDoorOpensFor) 
+                // if (slot.itemName.text == thisDoorOpensFor) 
+                if (Equals(slot.itemName.text, thisDoorOpensFor.name))
                 {
-                    isItemPresentInInventory = true;
+                    // playerCharacterTextGameObject = new MenuController.playerCharacterTextGameObject<GameObject>();
+                    isItemPresentInInventory = true; 
                     Debug.Log("isItemPresentInInventory = true)");
+                    // playerCharacterTextGameObject.SetActive(true);
                     playerCharacterText.text = textToDisplayIfUnlocked;
+                    // Debug.Log("waiting for 5 secs");
+                    // // yield return new WaitForSeconds(5);
+                    // Debug.Log("...Done waiting");
                     break;
                 }
                 else
                 {
-                    isItemPresentInInventory = false;
+                    isItemPresentInInventory = false; 
                     Debug.Log("isItemPresentInInventory = false)");
                     playerCharacterText.text = textToDisplayIfLocked;
 
@@ -94,14 +95,8 @@ public class BasicDoorController : Interactable
             if (isItemPresentInInventory == true)
             {
                 PlayAnimation();
-                Debug.Log("Play door animation");
             }
-        // }
-        // else
-        // {
-        //     isItemPresentInInventory = false;
-        //     Debug.Log("This door needs a key. (isItemPresentInInventory set to false)");
-        // }
+
         #endregion
     }
 }

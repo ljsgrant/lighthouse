@@ -6087,13 +6087,20 @@ PrefabInstance:
     - target: {fileID: 5550242526988835773, guid: 499e62c1ce4b64824807c1a670f3788f,
         type: 3}
       propertyPath: thisDoorOpensFor
-      value: KeyItemPlaceholder
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 11400000, guid: 16a48d58196f640aebca8293c21d2a42,
+        type: 2}
     - target: {fileID: 5550242526988835773, guid: 499e62c1ce4b64824807c1a670f3788f,
         type: 3}
       propertyPath: playerCharacterText
       value: 
       objectReference: {fileID: 280385560}
+    - target: {fileID: 5550242526988835773, guid: 499e62c1ce4b64824807c1a670f3788f,
+        type: 3}
+      propertyPath: thisDoorOpensForItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 16a48d58196f640aebca8293c21d2a42,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 499e62c1ce4b64824807c1a670f3788f, type: 3}
 --- !u!1 &1354651686
@@ -7907,6 +7914,8 @@ MonoBehaviour:
   inventoryMenu: {fileID: 172594158}
   inventoryKey: return
   isInventoryMenuActive: 0
+  playerCharacterText: {fileID: 280385560}
+  isPlayerCharacterTextActive: 0
 --- !u!114 &1612554009
 MonoBehaviour:
   m_ObjectHideFlags: 0

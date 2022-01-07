@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Inventory creates a list to hold items.
-// Inventory is instantiated in InventoryUI. It is a singleton & should not be instantiated more than once.
+// Inventory is instantiated in Awake. It is a singleton & should not be instantiated more than once.
 
 public class Inventory : MonoBehaviour
 {

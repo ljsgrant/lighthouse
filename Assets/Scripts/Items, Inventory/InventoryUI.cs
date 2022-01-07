@@ -42,28 +42,28 @@ public class InventoryUI : MonoBehaviour
     void UpdateUI()
     {
 
+        Debug.Log(inventory.items.Count);
         ClearAllSlots();
 
         for (int i = 0; i < inventory.items.Count; i++)
         {
             if (i < inventory.items.Count)
             {
+                // instantiating new item slot:
                 newInventorySlotGO = Instantiate(inventorySlotPrefab) as GameObject;
-                Debug.Log("Instantiating item slot");
 
                 InventorySlot slot = newInventorySlotGO.GetComponent<InventorySlot>();
 
                 DocumentViewerSetImage documentViewerSetImage = slot.GetComponentInChildren<DocumentViewerSetImage>();
-                Debug.Log(documentViewerSetImage);
 
                 documentViewerSetImage.menuObjectsManager = menuObjectsManager;
-
-                //Sets inventory slots to correct ScrollView parent depending on type:
 
                 slot.AddItem(inventory.items[i]);
                 slots.Add(slot);
 
                 //Debug.Log("InventoryUI.cs: Item Type is " + slot.itemTypeIndex);
+
+                //Sets inventory slots to correct ScrollView parent depending on type:
 
                 if (slot.itemTypeIndex == 1)
                 {
@@ -110,7 +110,6 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (InventorySlot slot in slots)
         {
-            Debug.Log("ClearAllSlots");
             Destroy(slot.gameObject);
             slot.ClearSlot();
         }

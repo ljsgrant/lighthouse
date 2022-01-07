@@ -9,13 +9,13 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-
     public GameObject inventoryMenu;
     //public GameObject player;
     public string inventoryKey;
     public bool isInventoryMenuActive;
 
-    public GameObject playerCharacterText;
+    public GameObject playerCharacterTextGameObject;
+    public Text playerCharacterText;
     public bool isPlayerCharacterTextActive;
 
     // public GameObject controlsPrompt;
@@ -27,12 +27,20 @@ public class MenuController : MonoBehaviour
     private GameObject mainCamera;
     private Behaviour mouseVerticalLook;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
         isInventoryMenuActive = false;
+
+        // Finds the PlayerCharacterText object in the scene canvas at runtime so we don't need to manually set it via the inspector:
+        //BETTER NOT TO DO THIS, INSTEAD ADD THE REFERENCE IN THE INSPECTOR, THEN STORE THE OBJECT AS A PREFAB FOR FUTURE SCENES. 
+        playerCharacterText = GameObject.Find("PlayerCharacterText").GetComponent<Text>();
+        // & makes sure the text field of the UI Text is empty:
+        playerCharacterText.text = null;
+        // & makes the GameObject inactive:
+        playerCharacterTextGameObject.SetActive(false);
+        // & sets the boolean to check later:
+        isPlayerCharacterTextActive = false;
 
         //Don't need this. Use "public GameObject player" above then define player in Unity Inspector
         player = GameObject.Find("Player");
@@ -45,7 +53,6 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (Input.GetKeyUp(inventoryKey))
         {
             if (isInventoryMenuActive == false)
@@ -67,4 +74,13 @@ public class MenuController : MonoBehaviour
             }
         }
     }
+/*
+    public void ShowPlayerCharacterMessage()
+    {
+        playerCharacterTextGameObject.SetActive(true); 
+        playerCharacterText.text = changePlayerCharacterTextToThis;
+        // other stuff happens here
+        playerCharacterTextGameObject.SetActive(false);
+    }
+*/
 }
