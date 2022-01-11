@@ -39,11 +39,15 @@ public class BasicLightSwitchController : Interactable
 
     public override void Interact()
     {
+        // this is incorrect, we don't shoot the ray at the light itself, 
+        // so this will throw a NullReferenceException as the ray
+        // can't see the light & its tag currently
         if(interactRaycast.hit.collider.gameObject.layer == LayerMask.NameToLayer("LightInSequence"))
         {
             StartCoroutine(TurnOnLightSequenceCoroutine());
             Debug.Log("light sequence");
         }
+        // same issue here
         if(interactRaycast.hit.collider.gameObject.layer == LayerMask.NameToLayer("LightStandalone"))
         {
             if (!isLightToTurnOnActive)
