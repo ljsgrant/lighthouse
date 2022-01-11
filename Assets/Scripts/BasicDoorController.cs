@@ -8,7 +8,7 @@ public class BasicDoorController : Interactable
     Inventory inventory;
 
     private Animator doorAnim;
-    private bool doorOpen = false;
+    private bool isDoorOpen = false;
 
     public GameObject menuManager = null;
     public ScriptableObject thisDoorOpensFor = null;
@@ -47,55 +47,70 @@ public class BasicDoorController : Interactable
 
     public void PlayAnimation()
     {
-        if (!doorOpen && !pauseInteraction)
+        if (!isDoorOpen && !pauseInteraction)
         {
             doorAnim.Play(openAnimationName, 0, 0.0f);
-            doorOpen = true;
+            isDoorOpen = true;
             StartCoroutine(PauseDoorInteraction());
         }
 
-        else if(doorOpen && !pauseInteraction)
+        else if(isDoorOpen && !pauseInteraction)
         {
             doorAnim.Play(closeAnimationName, 0, 0.0f);
-            doorOpen = false;
+            isDoorOpen = false;
             StartCoroutine(PauseDoorInteraction());
         }
+    }
+
+    private IEnumerator SearchInventoryCoroutine()
+    {
+        //We use this to control length of pause before PlayerCharacterText disappears.
+        // Eventually perhaps we should automate the length of this WaitForSeconds
+        // depending on number of words in string passed into playerCharacterText.text?
+        yield return new WaitForSeconds(2);
+        playerCharacterText.text = null;
     }
 
     public override void Interact() // from Interactable
     {
         #region Check inventory for item name
        
-             // Checks each inventory slot for specified item name, and prints a message to the console if found.
+        // Checks each inventory slot for specified item name, 
+        // and prints a message to the console if found.
 
-            foreach (InventorySlot slot in inventoryUI.slots)
+        foreach (InventorySlot slot in inventoryUI.slots)
+        {
+            // if (slot.itemName.text == thisDoorOpensFor) 
+            if (Equals(slot.itemName.text, thisDoorOpensFor.name))
             {
-                // if (slot.itemName.text == thisDoorOpensFor) 
-                if (Equals(slot.itemName.text, thisDoorOpensFor.name))
+                // playerCharacterTextGameObject = new MenuController.playerCharacterTextGameObject<GameObject>();
+                isItemPresentInInventory = true; 
+                Debug.Log("isItemPresentInInventory = true)");
+                // playerCharacterTextGameObject.SetActive(true);
+                if(!isDoorOpen)
                 {
-                    // playerCharacterTextGameObject = new MenuController.playerCharacterTextGameObject<GameObject>();
-                    isItemPresentInInventory = true; 
-                    Debug.Log("isItemPresentInInventory = true)");
-                    // playerCharacterTextGameObject.SetActive(true);
                     playerCharacterText.text = textToDisplayIfUnlocked;
-                    // Debug.Log("waiting for 5 secs");
-                    // // yield return new WaitForSeconds(5);
-                    // Debug.Log("...Done waiting");
-                    break;
+                    StartCoroutine(SearchInventoryCoroutine());
                 }
                 else
                 {
-                    isItemPresentInInventory = false; 
-                    Debug.Log("isItemPresentInInventory = false)");
-                    playerCharacterText.text = textToDisplayIfLocked;
-
+                    playerCharacterText.text = null;
                 }
+                break;
             }
-
-            if (isItemPresentInInventory == true)
+            else
             {
-                PlayAnimation();
+                isItemPresentInInventory = false; 
+                Debug.Log("isItemPresentInInventory = false)");
+                playerCharacterText.text = textToDisplayIfLocked;
+                StartCoroutine(SearchInventoryCoroutine());
             }
+        }
+
+        if (isItemPresentInInventory == true)
+        {
+            PlayAnimation();
+        }
 
         #endregion
     }

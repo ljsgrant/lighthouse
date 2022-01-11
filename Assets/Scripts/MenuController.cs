@@ -12,11 +12,14 @@ public class MenuController : MonoBehaviour
     public GameObject inventoryMenu;
     //public GameObject player;
     public string inventoryKey;
-    public bool isInventoryMenuActive;
+    public string createDictionaryKey = "2";
+    // public string testDictionaryKey;
+    private bool isInventoryMenuActive;
 
+    [Header("Drop PlayerCharacterText object from Canvas into both:")]
     public GameObject playerCharacterTextGameObject;
     public Text playerCharacterText;
-    public bool isPlayerCharacterTextActive;
+        bool isPlayerCharacterTextActive;
 
     // public GameObject controlsPrompt;
     // public string controlsPromptKey;
@@ -32,6 +35,7 @@ public class MenuController : MonoBehaviour
     {
         isInventoryMenuActive = false;
 
+        /*
         // Finds the PlayerCharacterText object in the scene canvas at runtime so we don't need to manually set it via the inspector:
         //BETTER NOT TO DO THIS, INSTEAD ADD THE REFERENCE IN THE INSPECTOR, THEN STORE THE OBJECT AS A PREFAB FOR FUTURE SCENES. 
         playerCharacterText = GameObject.Find("PlayerCharacterText").GetComponent<Text>();
@@ -41,6 +45,7 @@ public class MenuController : MonoBehaviour
         playerCharacterTextGameObject.SetActive(false);
         // & sets the boolean to check later:
         isPlayerCharacterTextActive = false;
+        */
 
         //Don't need this. Use "public GameObject player" above then define player in Unity Inspector
         player = GameObject.Find("Player");
@@ -73,6 +78,19 @@ public class MenuController : MonoBehaviour
                 mouseVerticalLook.enabled = true;
             }
         }
+
+        // #region Test dictionary 
+        // if (Input.GetKeyUp(createDictionaryKey))
+        // {
+        //     playerCharacterTextGameObject.SetActive(true);
+        //     Dictionary<string, string> testDict = new Dictionary<string, string>();
+        //     testDict.Add("Grincher office key", "Grincher office key1");
+        //     testDict.Add("Level one key", "Level one key1");
+        //     testDict.Add("Moonpool key", "Moonpool key1");
+        //     string keyToLookFor = testDict["Level one key"];
+        //     Debug.Log(keyToLookFor);
+        // }
+        // #endregion
     }
 /*
     public void ShowPlayerCharacterMessage()

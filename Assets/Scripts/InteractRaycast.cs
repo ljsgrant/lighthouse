@@ -15,6 +15,8 @@ public class InteractRaycast : MonoBehaviour
 
     public bool isKeyHeld = false;
 
+    public RaycastHit hit;
+
     [Header("Raycast Parameters")]
     [SerializeField] private float rayLength = 0.5f;
     [SerializeField] private LayerMask layerMaskInteract;
@@ -60,7 +62,7 @@ public class InteractRaycast : MonoBehaviour
 
     void Update()
     {
-        RaycastHit hit;
+        // RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         int mask = 1 << LayerMask.NameToLayer(exludeLayerName) | layerMaskInteract.value;

@@ -7,6 +7,8 @@ TagManager:
   - InteractiveObject
   - ChangeLevelRaycatcher
   - PickUpableObject
+  - LightStandalone
+  - LightInSequence
   layers:
   - Default
   - TransparentFX
