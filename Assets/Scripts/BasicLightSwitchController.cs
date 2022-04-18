@@ -13,7 +13,9 @@ public class BasicLightSwitchController : Interactable
 
     InteractRaycast interactRaycast;
 
-#region Light Sequence
+    /*
+
+    #region Light Sequence
     // Comment this out for using with normal lights (whilst testing).
     // Eventually need to build in functionality whereby Interact checks
     // a tag on the light to see if it's part of a sequence or a discrete
@@ -37,11 +39,16 @@ public class BasicLightSwitchController : Interactable
         }
     }
 
+    */
+
     public override void Interact()
     {
         // this is incorrect, we don't shoot the ray at the light itself, 
         // so this will throw a NullReferenceException as the ray
         // can't see the light & its tag currently
+        
+    /*
+
         if(interactRaycast.hit.collider.gameObject.layer == LayerMask.NameToLayer("LightInSequence"))
         {
             StartCoroutine(TurnOnLightSequenceCoroutine());
@@ -50,6 +57,9 @@ public class BasicLightSwitchController : Interactable
         // same issue here
         if(interactRaycast.hit.collider.gameObject.layer == LayerMask.NameToLayer("LightStandalone"))
         {
+        
+            */
+
             if (!isLightToTurnOnActive)
             {            
                 lightToTurnOn.GetComponent<Light>().enabled = true;
@@ -60,14 +70,19 @@ public class BasicLightSwitchController : Interactable
                 lightToTurnOn.GetComponent<Light>().enabled = false;
                 isLightToTurnOnActive = false;
             }
+          
+    /*
+
         }
         else
         {
             Debug.Log("Couldn't find a light to work with!");
         }
 
+        */
+
     }
-    #endregion
+    // #endregion
 
     // Comment this out for testing the light sequence above
     #region Normal light Interact 
